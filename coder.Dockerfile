@@ -7,7 +7,7 @@ COPY settings.json /root/.local/share/code-server/User/settings.json
 
 ### Required Packages ###
 RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install -y sqlite3 git-core curl gnupg build-essential wget openssl ruby ruby-dev libopus-dev opus-tools binutils libssl-dev zlib1g-dev libboost-system-dev libcurl4-openssl-dev libffi-dev python-dev ffmpeg build-essential autoconf automake libtool m4 youtube-dl
+    && apt-get install -y sqlite3 git-core curl gnupg build-essential wget openssl ruby ruby-dev libopus-dev opus-tools binutils libssl-dev zlib1g-dev libboost-system-dev libcurl4-openssl-dev libffi-dev python-dev-is-python3 ffmpeg build-essential autoconf automake libtool m4 youtube-dl
 
 ### Nodejs ###
 RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
