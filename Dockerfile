@@ -1,7 +1,5 @@
 FROM botwayorg/coder:latest
 
-USER coder
-
 ARG PASSWORD GIT_REPO GITHUB_TOKEN
 
 RUN gh repo clone $GIT_REPO main
