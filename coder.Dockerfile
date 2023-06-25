@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM golang:latest
 
 ENV SHELL=/bin/bash
 ENV PORT=8080
@@ -15,14 +15,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
 
 RUN npm i -g npm@latest pnpm@latest yarn@latest
 
-### Go ###
-RUN wget "https://dl.google.com/go/$(curl https://go.dev/VERSION?m=text).linux-amd64.tar.gz"
-RUN tar -C /usr/local -xzf "$(curl https://go.dev/VERSION?m=text).linux-amd64.tar.gz"
-ENV GOROOT /usr/local/go/bin
-ENV PATH /go/bin:$PATH
-RUN rm "$(curl https://go.dev/VERSION?m=text).linux-amd64.tar.gz"
-RUN echo 'alias go="/usr/local/go/bin/go"' >> ~/.profile
-
 ### Homebrew ###
 RUN mkdir ~/.cache && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -32,8 +24,8 @@ ENV INFOPATH="$INFOPATH:/home/linuxbrew/.linuxbrew/share/info"
 
 RUN echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH' >> ~/.profile
 
-### CMake, GitHub CLI, Deno, Botway CLI, Rust, .NET, MongoDB, MySQL, Redis and Railway CLI ###
-RUN brew update && brew install cmake gh deno abdfnx/tap/botway rust rustup-init dotnet mongodb/brew/mongodb-community mysql redis railwayapp/tap/rlwy
+### CMake, GitHub CLI, Deno, Nim, PHP, Dart, Kotlin, Gradle, Poetry, Lua, Swift, Crystal, Botway CLI, Rust, .NET, MongoDB, MySQL, Redis and Railway CLI ###
+RUN brew update && brew install cmake gh deno nim php composer dart-lang/dart/dart kotlin gradle swift poetry lua abdfnx/tap/botway rust rustup-init dotnet mongodb/brew/mongodb-community mysql redis railwayapp/tap/rlwy
 
 ### PostgreSQL ###
 RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
