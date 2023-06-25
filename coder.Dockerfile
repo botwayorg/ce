@@ -1,4 +1,4 @@
-FROM debain:latest
+FROM debian:latest
 
 ENV SHELL=/bin/bash
 ENV PORT=8080
