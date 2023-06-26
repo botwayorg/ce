@@ -20,5 +20,8 @@ jobs:
 
       - name: Build
         run: |
+          docker build -t botwayorg/packages:latest --file packages.Dockerfile .
+          docker push botwayorg/packages:latest
+
           docker build -t botwayorg/coder:latest --file coder.Dockerfile .
           docker push botwayorg/coder:latest
