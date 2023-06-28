@@ -1,4 +1,4 @@
-FROM debian:slim
+FROM debian:stable-slim
 
 ENV SHELL=/bin/bash
 ENV PORT=8080
