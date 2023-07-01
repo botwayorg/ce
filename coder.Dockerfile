@@ -6,8 +6,8 @@ ENV PORT=8080
 COPY settings.json /root/.local/share/code-server/User/settings.json
 
 ### Required Packages ###
-RUN apk update \
-    && apk add zip unzip gcompat git curl npm py3-pip openssl openssl-dev libsodium ffmpeg musl-locales lld clang build-base abuild binutils opus autoconf automake libtool m4 youtube-dl binutils-doc gcc-doc python3-dev neofetch zsh sudo make lsof wget gcc asciidoctor ca-certificates bash-completion htop jq less llvm nano vim ruby-full ruby-dev libffi-dev icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib postgresql postgresql-client
+RUN sudo apk update \
+    && sudo apk add zip unzip git curl npm py3-pip openssl openssl-dev libsodium ffmpeg lld clang build-base abuild binutils opus autoconf automake libtool m4 youtube-dl binutils-doc gcc-doc python3-dev neofetch zsh sudo make lsof wget gcc asciidoctor ca-certificates bash-completion htop jq less llvm nano vim ruby-full ruby-dev libffi-dev icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib postgresql postgresql-client
 
 ### Homebrew ###
 RUN mkdir ~/.cache && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
