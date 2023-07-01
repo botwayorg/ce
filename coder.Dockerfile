@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM linuxbrew/alpine:latest
 
 ENV SHELL=/bin/bash
 ENV PORT=8080
