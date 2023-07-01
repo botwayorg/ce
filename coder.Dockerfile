@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 ### Required Packages ###
 RUN apt-get update -yq \
-    && apt-get install -y sqlite3 git-core curl gnupg sudo build-essential wget openssl ruby ruby-dev libopus-dev opus-tools binutils libssl-dev zlib1g-dev libboost-system-dev libcurl4-openssl-dev libffi-dev python-dev-is-python3 ffmpeg build-essential autoconf automake libtool m4 youtube-dl
+    && apt-get install -y sqlite3 lsb-release git-core curl gnupg sudo build-essential wget openssl ruby ruby-dev libopus-dev opus-tools binutils libssl-dev zlib1g-dev libboost-system-dev libcurl4-openssl-dev libffi-dev python-dev-is-python3 ffmpeg build-essential autoconf automake libtool m4 youtube-dl
 
 ### Homebrew ###
 RUN mkdir ~/.cache && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
