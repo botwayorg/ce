@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-glibc:glibc-2.35
+FROM alpine:latest
 
 ENV SHELL=/bin/bash
 ENV PORT=8080
