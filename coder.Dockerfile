@@ -11,7 +11,7 @@ ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH
 ENV MANPATH="$MANPATH:/home/linuxbrew/.linuxbrew/share/man"
 ENV INFOPATH="$INFOPATH:/home/linuxbrew/.linuxbrew/share/info"
 
-RUN echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH' >> ~/.profile
+RUN echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH' >> /root/.profile
 
 RUN brew update && brew install gh node abdfnx/tap/botway railwayapp/tap/rlwy mongodb/brew/mongodb-community mysql redis
 
@@ -22,6 +22,9 @@ ENV SHELL=/bin/bash
 ENV PORT=8080
 
 COPY settings.json /root/.local/share/code-server/User/settings.json
+COPY entrypoint /usr/bin/entrypoint
+
+RUN chmod 755 /usr/bin/entrypoint
 
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
