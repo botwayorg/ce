@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM frolvlad/alpine-glibc:glibc-2.35
 
 ENV SHELL=/bin/bash
 ENV PORT=8080
@@ -6,8 +6,8 @@ ENV PORT=8080
 COPY settings.json /root/.local/share/code-server/User/settings.json
 
 ### Required Packages ###
-RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install -y sqlite3 git-core curl gnupg build-essential wget openssl ruby ruby-dev libopus-dev opus-tools binutils libssl-dev zlib1g-dev libboost-system-dev libcurl4-openssl-dev libffi-dev python-dev-is-python3 ffmpeg build-essential autoconf automake libtool m4 youtube-dl
+RUN apk update \
+    && apk add zip unzip gcompat git curl npm py3-pip openssl openssl-dev libsodium ffmpeg musl-locales lld clang build-base abuild binutils opus autoconf automake libtool m4 youtube-dl binutils-doc gcc-doc python3-dev neofetch zsh sudo make lsof wget gcc asciidoctor ca-certificates bash-completion htop jq less llvm nano vim ruby-full ruby-dev libffi-dev icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib postgresql postgresql-client
 
 ### Homebrew ###
 RUN mkdir ~/.cache && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -21,16 +21,16 @@ RUN echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/
 ### CMake, GitHub CLI, Deno, Nim, PHP, Dart, Kotlin, Go, Taskfile, Gradle, Poetry, Lua, Swift, Crystal, Botway CLI, Rust, .NET, MongoDB, MySQL, Redis and Railway CLI ###
 RUN brew update && brew install cmake gh deno nim php composer dart-lang/dart/dart go-task/tap/go-task kotlin go gradle swift poetry lua abdfnx/tap/botway rust rustup-init dotnet mongodb/brew/mongodb-community mysql redis railwayapp/tap/rlwy
 
-### Nodejs ###
-RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
-    apt-get install -y nodejs
+# ### Nodejs ###
+# RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
+#     apt-get install -y nodejs
 
 RUN npm i -g npm@latest pnpm@latest yarn@latest
 
 ### PostgreSQL ###
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
-    && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-    && apt-get update -y \
-    && apt-get install -y postgresql
+# RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
+#     && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+#     && apt-get update -y \
+#     && apt-get install -y postgresql
 
 RUN curl -fsSL https://code-server.dev/install.sh | sh
