@@ -22,3 +22,6 @@ jobs:
         run: |
           docker build -t botwayorg/coder:latest --file coder.Dockerfile .
           docker push botwayorg/coder:latest
+
+          docker build -t botwayorg/ce:latest .
+          docker push botwayorg/ce:latest
