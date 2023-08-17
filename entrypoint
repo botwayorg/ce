@@ -4,4 +4,8 @@ echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
 
 source /root/.profile
 
+brew install $PKGS
+
+gh repo clone $GIT_REPO /root/workspace
+
 code-server --bind-addr 0.0.0.0:8080 /root/workspace
