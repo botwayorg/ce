@@ -4,6 +4,8 @@ echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
 
 source /root/.profile
 
+export GH_TOKEN=$GH_TOKEN
+
 brew install $PKGS
 
 gh repo clone $GIT_REPO /root/workspace
