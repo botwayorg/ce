@@ -1,4 +1,10 @@
-# Botway Code Editor
+<p align="center">
+    <img src="https://cdn-botway.deno.dev/icons/bwce.svg" width="150px" />
+</p>
+
+<p align="center">
+    Botway Code Editor
+</p>
 
 > Botway CE is built on top of [Coder](https://coder.com)
 
