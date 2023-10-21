@@ -13,7 +13,7 @@ ENV INFOPATH="$INFOPATH:/home/linuxbrew/.linuxbrew/share/info"
 
 RUN echo 'export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:$PATH' >> /root/.profile
 
-RUN brew update && brew install gh node abdfnx/tap/botway railwayapp/tap/rlwy mongodb/brew/mongodb-community mysql redis
+RUN brew update && brew install gh node abdfnx/tap/botway mongodb/brew/mongodb-community mysql redis
 
 RUN npm i -g npm@latest pnpm@latest yarn@latest
 
